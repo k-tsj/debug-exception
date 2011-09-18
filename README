@@ -1,0 +1,39 @@
+= About
+Automatically start the REPL on an exception to debug.
+
+Note that because of debugger API limitation of Ruby,
+this library does not work in some cases.
+
+
+= Compilation and Installation
+ $ git clone git://github.com/k-tsj/debug-exception.git
+ $ cd debug-exception
+ $ rake build
+ $ gem install pkg/debug-exception-*.gem
+
+or 
+
+ $ gem install bundler (if you need)
+ $ echo "gem 'debug-exception', :git => 'git://github.com/k-tsj/debug-exception.git'" > Gemfile
+ $ bundle install --path vendor/bundle
+
+
+= Usage
+Simply add the following line at the top of the code file.
+
+ require "debug-exception"
+
+
+= Example
+ $ cat sample.rb
+   require "debug-exception"
+
+   def f(i); raise "test"; end
+   f(0)
+
+ $ ruby sample.rb
+   RuntimeError: test
+           from sample.rb:3:in `f'
+           from sample.rb:4:in `<main>'
+   irb#1(main):001:0> i
+   => 0
