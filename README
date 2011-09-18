@@ -8,8 +8,8 @@ this library does not work in some cases.
 = Compilation and Installation
  $ git clone git://github.com/k-tsj/debug-exception.git
  $ cd debug-exception
- $ rake build
- $ gem install pkg/debug-exception-*.gem
+ $ gem build debug-exception.gemspec
+ $ gem install debug-exception-*.gem
 
 or
 
