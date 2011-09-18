@@ -11,7 +11,7 @@ this library does not work in some cases.
  $ rake build
  $ gem install pkg/debug-exception-*.gem
 
-or 
+or
 
  $ gem install bundler (if you need)
  $ echo "gem 'debug-exception', :git => 'git://github.com/k-tsj/debug-exception.git'" > Gemfile
