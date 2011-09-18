@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = %w{
     Automatically start the REPL on an exception to debug.
     Note that because of debugger API limitation of Ruby,
-    this library does not work in some case.
+    this library does not work in some cases.
   }.join(' ')
 
   s.files         = `git ls-files`.split("\n")
