@@ -1,8 +1,8 @@
 require 'debug_exception'
 
 at_exit {
-  $__binding__ = $!.instance_variable_get(:@binding)
-  if $__binding__
+  b = $!.instance_variable_get(:@binding)
+  if b
     # from Irb#eval_input(lib/irb.rb)
     def error_print(exc)
       print exc.class, ": ", exc, "\n"
@@ -33,12 +33,12 @@ at_exit {
     error_print($!)
 
     require 'irb'
-    class ::IRB::Irb
-      alias eval_input_orig eval_input
-      def eval_input
-        ::IRB::Irb.instance_eval{alias_method :eval_input, :eval_input_orig}
+    ::IRB::Irb.module_eval do
+      alias_method :eval_input_orig, :eval_input
+      define_method(:eval_input) do
+        ::IRB::Irb.module_eval { alias_method :eval_input, :eval_input_orig }
         require 'irb/ext/multi-irb'
-        ::IRB.irb(nil, $__binding__)
+        ::IRB.irb(nil, b)
       end
     end
     IRB.start
