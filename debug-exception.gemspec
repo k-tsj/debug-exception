@@ -2,7 +2,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 require "debug-exception/version"
 
-Gem::Specification.new do |s|
+DebugExceptionSpec = Gem::Specification.new do |s|
   s.name        = "debug-exception"
   s.version     = Debug::Exception::VERSION
   s.authors     = ["Kazuki Tsujimoto"]
@@ -20,5 +20,9 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.extensions << 'ext/extconf.rb'
-end
+  s.extensions << "ext/debug_exception/extconf.rb"
+
+  s.add_development_dependency "rake-compiler"
+end unless defined? DebugExceptionSpec # suppres "already initialized constant" warnings
+
+DebugExceptionSpec
