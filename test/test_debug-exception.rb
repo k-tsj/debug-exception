@@ -26,4 +26,19 @@ class DebugExceptionTest < Test::Unit::TestCase
       end
     }
   end
+
+  def test_avoid_systemstackerror
+    timeout(2) {
+      begin
+        r, w, pid = PTY.spawn(RUBY, '-I', LIB, '-rdebug-exception',
+                        '-e', 'Thread.new("$_", &Object.method(:eval)).join')
+        assert_match(/RuntimeError/, r.gets)
+      ensure
+        if pid
+          _, stat = Process.wait2(pid)
+          assert_equal(true, stat.exited?)
+        end
+      end
+    }
+  end
 end
