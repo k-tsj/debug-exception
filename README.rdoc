@@ -1,11 +1,12 @@
-= About
+= debug-exception
+== About
 Automatically start the REPL on an exception to debug.
 
 Note that because of debugger API limitation of Ruby,
 this library does not work in some cases.
 
 
-= Compilation and Installation
+== Compilation and Installation
  $ git clone git://github.com/k-tsj/debug-exception.git
  $ cd debug-exception
  $ gem build debug-exception.gemspec
@@ -18,13 +19,13 @@ or
  $ bundle install --path vendor/bundle
 
 
-= Usage
+== Usage
 Simply add the following line at the top of the code file.
 
  require "debug-exception"
 
 
-= Example
+== Example
  $ cat sample.rb
    require "debug-exception"
 
@@ -39,7 +40,7 @@ Simply add the following line at the top of the code file.
    => 0
 
 
-= Development
+== Development
  $ git clone git://github.com/k-tsj/debug-exception.git
  $ cd debug-exception
  $ gem install bundler (if you need)
