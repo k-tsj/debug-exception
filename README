@@ -37,3 +37,12 @@ Simply add the following line at the top of the code file.
            from sample.rb:4:in `<main>'
    irb#1(main):001:0> i
    => 0
+
+
+= Development
+ $ git clone git://github.com/k-tsj/debug-exception.git
+ $ cd debug-exception
+ $ gem install bundler (if you need)
+ $ bundle install --path vendor/bundle
+ $ rake test (or simply type "rake")
+ $ rake build
