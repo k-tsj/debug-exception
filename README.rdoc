@@ -47,3 +47,6 @@ Simply add the following line at the top of the code file.
  $ bundle install --path vendor/bundle
  $ rake test (or simply type "rake")
  $ rake build
+
+
+== Travis Build Status {<img src="https://secure.travis-ci.org/k-tsj/debug-exception.png"/>}[http://travis-ci.org/k-tsj/debug-exception]

@@ -14,9 +14,9 @@ class DebugExceptionTest < Test::Unit::TestCase
         assert_match(/RuntimeError/, r.gets)
         assert_match(/from -e/, r.gets)
         assert_match(/from -e/, r.gets)
-        assert_match(/irb/, r.readpartial(20))
+        assert_match(/\> /, r.readpartial(100))
         w.puts 'i'
-        assert_match(/999/, r.readpartial(20))
+        assert_match(/999/, r.readpartial(100))
         w.puts 'exit'
       ensure
         if pid
